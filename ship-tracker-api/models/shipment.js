@@ -1,7 +1,7 @@
 "use strict";
 module.exports = function(sequelize, DataTypes) {
   var Shipment = sequelize.define(
-    "Shipment",
+    "shipment",
     {
       tracking_number: DataTypes.STRING,
       ship_date: DataTypes.STRING,
