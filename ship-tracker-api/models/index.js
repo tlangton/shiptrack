@@ -31,12 +31,8 @@ fs
     db[model.name] = model;
   });
 
-console.log(1);
 Object.keys(db).forEach(function(modelName) {
-  console.log(modelName);
-  console.log(db[modelName].associate);
   if (db[modelName].associate) {
-    console.log("associations");
     db[modelName].associate(db);
   }
 });

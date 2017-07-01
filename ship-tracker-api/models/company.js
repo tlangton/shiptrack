@@ -5,6 +5,30 @@ module.exports = function(sequelize, DataTypes) {
   });
   Company.associate = function(models) {
     Company.hasMany(models.job);
+
+    Company.getShipments = function(companyId) {
+      return models.job
+        .findAll({
+          where: {
+            companyId
+          }
+        })
+        .then(jobs =>
+          models.shipment.findAll({
+            where: {
+              jobId: {
+                $in: jobs.map(j => j.id)
+              }
+            },
+            include: [
+              {
+                model: models.job
+              }
+            ]
+          })
+        );
+    };
   };
+
   return Company;
 };

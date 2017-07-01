@@ -12,19 +12,18 @@ app.get("/companies", (req, res) => {
   });
 });
 
-app.get("/companies/jobs", (req, res) => {
-  company
-    .findAll({
-      include: [{ model: job }]
-    })
-    .then(jobs => res.send(jobs));
-});
-
 app.get("/companies/:id/shipments", (req, res) => {
-  let companyId = req.params.id;
-  // this should return a list of shipments for a given company
-  // shipments = ShipmentsService.shipmentsForCompany(companyId)
-  res.send(`shipments for company #${companyId}`);
+  company.getShipments(req.params.id).then(shipments => {
+    let updatedShipments = [];
+    shipments.forEach(s => {
+      s.updateShippingInfo(() => {
+        updatedShipments.push(s);
+        if (shipments.length == updatedShipments.length) {
+          res.send(updatedShipments);
+        }
+      });
+    });
+  });
 });
 
 app.listen(3000);

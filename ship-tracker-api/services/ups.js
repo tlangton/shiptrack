@@ -7,20 +7,21 @@ let upsClient = new UpsClient({
 });
 
 function getTrackingInfo(trackingNumber, callback) {
+  console.log("getting tracking info for " + trackingNumber);
   upsClient.requestData({ trackingNumber }, (err, result) => {
     if (err) {
       console.log(`[ERROR] error retrieving tracking data ${err}`);
+      callback(null);
     } else {
       callback(result);
     }
   });
 }
 
-function testDetails() {
-  getTrackingInfo("1Z879E930346834440", data => console.log(data));
-}
-
 module.exports = {
-  getTrackingInfo,
-  testDetails
+  getTrackingInfo
 };
+
+// 1 delivered
+// 2 in transit -- on time?
+//

@@ -8,21 +8,33 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      tracking_number: {
+      trackingNumber: {
         type: Sequelize.STRING
       },
-      ship_date: {
+      shipDate: {
         type: Sequelize.STRING
       },
-      ship_to_address: {
+      shipToAddress: {
         type: Sequelize.STRING
       },
-      job_id: {
+      jobId: {
         allowNull: false,
         references: { model: "jobs", key: "id" },
         type: Sequelize.INTEGER
       },
       status: {
+        type: Sequelize.INTEGER
+      },
+      eta: {
+        type: Sequelize.DATE
+      },
+      destination: {
+        type: Sequelize.STRING
+      },
+      service: {
+        type: Sequelize.STRING
+      },
+      weight: {
         type: Sequelize.STRING
       },
       createdAt: {
