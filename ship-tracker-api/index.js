@@ -14,6 +14,9 @@ app.get("/companies", (req, res) => {
 
 app.get("/companies/:id/shipments", (req, res) => {
   company.getShipments(req.params.id).then(shipments => {
+    if (!shipments || shipments.length === 0) {
+      return res.send([]);
+    }
     let updatedShipments = [];
     shipments.forEach(s => {
       s.updateShippingInfo(() => {

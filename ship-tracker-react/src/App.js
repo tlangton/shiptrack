@@ -1,9 +1,19 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+const Shipment = ({ id, trackingNumber, job }) =>
+  <div className="shipment">
+    <div className="shipment__job-number">
+      Job#: {job.id}
+    </div>
+    <div className="shipment__tracking-number">
+      Tracking#: {trackingNumber}
+    </div>
+  </div>;
+
 class App extends Component {
   state = {
-    selectedCompanyId: 2,
+    selectedCompanyId: null,
     companies: [],
     shipments: []
   };
@@ -14,7 +24,6 @@ class App extends Component {
         companies: res.data
       });
     });
-    this.queryShipmentsForCompany({ id: 2 });
   }
 
   queryShipmentsForCompany = ({ id }) => {
@@ -26,6 +35,7 @@ class App extends Component {
   };
 
   selectCompany = company => {
+    this.queryShipmentsForCompany(company);
     this.setState({
       selectedCompanyId: company.id
     });
@@ -64,26 +74,20 @@ class App extends Component {
   renderSelectedCompany = () => {
     let company = this.getSelectedCompany();
     if (company) {
-      return <h1 id="selected-company" />;
+      return (
+        <h1 id="selected-company">
+          {company.title}
+        </h1>
+      );
     }
   };
 
   // Shipments
-  renderShipment = shipment => {
-    return (
-      <div className="shipment">
-        {shipment.id}
-        <br />
-        {shipment.trackingNumber}
-      </div>
-    );
-  };
-
   renderShipments = () => {
     return (
       <div className="shipments">
         <h2>Shipments</h2>
-        {this.state.shipments.map(this.renderShipment)}
+        {this.state.shipments.map(s => <Shipment key={s.id} {...s} />)}
       </div>
     );
   };
