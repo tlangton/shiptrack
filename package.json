@@ -1,0 +1,19 @@
+{
+  "name": "shiptrack",
+  "version": "1.0.0",
+  "description": "- Company   - title - Job   - title   - job_number   - company_id - Shipment   - tracking_number   - ship_date   - ship_to_address   - job_id   - status",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tlangton/shiptrack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tlangton/shiptrack/issues"
+  },
+  "homepage": "https://github.com/tlangton/shiptrack#readme"
+}
