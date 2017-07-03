@@ -1,19 +1,15 @@
 {
-  "name": "shiptrack",
+  "name": "ship-tracker-api",
   "version": "1.0.0",
-  "description": "- Company   - title - Job   - title   - job_number   - company_id - Shipment   - tracking_number   - ship_date   - ship_to_address   - job_id   - status",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tlangton/shiptrack.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tlangton/shiptrack/issues"
-  },
-  "homepage": "https://github.com/tlangton/shiptrack#readme"
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "excel-export-impr": "^0.4.1",
+    "express": "^4.15.3",
+    "pg": "^6.4.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.2.0",
+    "shipit": "^1.0.2"
+  }
 }
