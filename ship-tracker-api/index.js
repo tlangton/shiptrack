@@ -42,4 +42,4 @@ app.get("/companies/:id/shipments/excel", (req, res) => {
   });
 });
 
-app.listen(3000);
+app.listen(ENV["PORT"] || 3000);
