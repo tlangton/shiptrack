@@ -5,8 +5,6 @@ const db = require("./models");
 const { company, job, shipment } = require("./models");
 const excel = require("./services/excel");
 
-app.use(express.static(__dirname + "/build"));
-
 app.get("/companies", (req, res) => {
   company.findAll().then(companies => {
     res.send(companies);
@@ -41,5 +39,7 @@ app.get("/companies/:id/shipments/excel", (req, res) => {
     res.end(doc, "binary");
   });
 });
+
+app.use(express.static(__dirname + "/build"));
 
 app.listen(process.env["PORT"] || 3000);
