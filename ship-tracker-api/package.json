@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "excel-export-impr": "^0.4.1",
     "express": "^4.15.3",
     "pg": "^6.4.0",
     "pg-hstore": "^2.3.2",

@@ -22,6 +22,7 @@ module.exports = {
   getTrackingInfo
 };
 
-// 1 delivered
 // 2 in transit -- on time?
+// 4 delivered
+// 5 [first] delivery attempt made
 //
